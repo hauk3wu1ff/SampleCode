@@ -1,3 +1,10 @@
+/.metadata/
+/.recommenders/
+/RemoteSystemsTempFiles/
+/vdp-hello/.classpath
+/vdp-hello/.project
+/vdp-hello/.settings/
+/vdp-hello/target/
 /vdp-java/.classpath
 /vdp-java/.project
 /vdp-java/.settings/
@@ -57,6 +64,7 @@ mkmf.log
 /vdp-c-sharp/bld/
 /vdp-c-sharp/[Bb]in/
 /vdp-c-sharp/[Oo]bj/
+/vdp-c-sharp/vdp-c-sharp/obj/
 
 # Roslyn cache directories
 *.ide/
