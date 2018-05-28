@@ -20,6 +20,7 @@ import org.apache.http.HttpEntity;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpHost;
 import org.apache.http.HttpRequest;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
@@ -112,13 +113,19 @@ public class VisaAPIClient {
             	request.setHeader(header.getKey(), header.getValue());
             }
         }
+
+		// Proxy setup
+		HttpHost proxy = new HttpHost("127.0.0.1", 3128, "http");
+		RequestConfig config = RequestConfig.custom().setProxy(proxy).build();
         
         if (request instanceof HttpPost) {
 		    ((HttpPost) request).setEntity(new StringEntity(body, "UTF-8"));
+		    ((HttpPost) request).setConfig(config);
 		} else if (request instanceof HttpPut) {
 		    ((HttpPut) request).setEntity(new StringEntity(body, "UTF-8"));
+		    ((HttpPost) request).setConfig(config);
 		}
-        
+       
         HttpHost host = new HttpHost(VisaProperties.getProperty(Property.END_POINT));
         CloseableHttpResponse response = fetchMutualAuthHttpClient().execute((HttpUriRequest) request);
         logResponse(response);

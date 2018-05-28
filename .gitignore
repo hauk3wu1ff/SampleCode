@@ -1,3 +1,4 @@
+*.bak
 /.metadata/
 /.recommenders/
 /RemoteSystemsTempFiles/
@@ -9,6 +10,8 @@
 /vdp-java/.project
 /vdp-java/.settings/
 /vdp-java/target/
+/vdp-java/test-output/
+/vdp-java/log4j.log
 /vdp-node/.jshintrc
 /vdp-node/.project
 /vdp-node/.settings/
